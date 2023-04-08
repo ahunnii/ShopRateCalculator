@@ -1,0 +1,15 @@
+[
+	{
+		"name": "Monthly Cost",
+		"alt": "Fixed Costs",
+		"description": "Fixed costs are calculated monthly. Things like rent, gas, etc. are included in this.",
+		"hint": "Charges should be recorded on a monthly basis.",
+		"fields": [
+			{ "name": "Monthly Rent", "icon": "MdOutlineHomeWork" },
+			{ "name": "Gas Bill", "icon": "MdLocalGasStation" },
+			{ "name": "Electric Bill", "icon": "MdOutlineElectricalServices" },
+			{ "name": "Maintenance Costs", "icon": "FaHammer" }
+		],
+		"is_additional_available": true
+	}
+]

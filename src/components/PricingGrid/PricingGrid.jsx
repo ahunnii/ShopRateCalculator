@@ -39,6 +39,10 @@ import NextButton from "../Forms/NextButton/NextButton";
 
 import { CheckIcon } from "@chakra-ui/icons";
 import { PieChart } from "react-minimal-pie-chart";
+
+import CostPanel from "../../features/CostPanel";
+import FORM_DATA from "../../data/panels.json";
+
 import {
 	MdOutlineHomeWork,
 	MdOutlineElectricalServices,
@@ -147,6 +151,7 @@ export default function PricingGrid() {
 		if (isFinite(calc)) return calc;
 		return 0;
 	};
+
 	return (
 		<Box position={"relative"}>
 			<Container
@@ -160,11 +165,25 @@ export default function PricingGrid() {
 					<Tabs variant="unstyled" align="center" index={tabIndex} onChange={handleTabsChange}>
 						<TabList marginLeft="auto" marginRight="auto">
 							<Tab _selected={{ color: "white", bg: "blue.500" }}>Monthly Cost</Tab>
+							<Tab _selected={{ color: "white", bg: "blue.500" }}>Monthly Cost</Tab>
 							<Tab _selected={{ color: "white", bg: "green.400" }}>Material Cost</Tab>
 							<Tab _selected={{ color: "white", bg: "red.400" }}>Labor Cost</Tab>
 							<Tab _selected={{ color: "white", bg: "orange.400" }}>Profit</Tab>
 						</TabList>
 						<TabPanels>
+							{FORM_DATA &&
+								FORM_DATA.map((data) => (
+									<TabPanel>
+										<CostPanel
+											title={data.alt}
+											text={data.description}
+											hint={data.hint}
+											fields={data.fields}
+											additional={data.is_additional_available}
+										/>
+									</TabPanel>
+								))}
+
 							<TabPanel>
 								<FormHeading
 									title={"Fixed Costs"}
